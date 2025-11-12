@@ -43,7 +43,7 @@ const FlightSelectDrawer = ({ flight, open, onClose, onContinue }: FlightSelectD
 
           <div className="flex justify-between pt-2 border-t">
             <span className="text-lg font-semibold">Ticket Price</span>
-            <span className="text-2xl font-bold text-primary">₹{flight?.price}</span>
+             <span className="text-2xl font-bold text-primary">₹{flight?.price}</span>
           </div>
         </div>
 
