@@ -90,7 +90,7 @@ const Details = ({ theme, toggleTheme }: DetailsProps) => {
               </div>
             </div>
             <div className="text-right">
-              <div className="text-3xl font-bold text-primary mb-1">${hotel.price}</div>
+              <div className="text-3xl font-bold text-primary mb-1">₹{hotel.price}</div>
               <div className="text-muted-foreground">per night</div>
             </div>
           </div>
