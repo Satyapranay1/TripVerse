@@ -83,7 +83,7 @@ const FlightSearchForm = ({ onSearch }: FlightSearchFormProps) => {
           </Popover>
         </div>
 
-        <div>
+        {/* <div>
           <Label>Class</Label>
           <Select value={flightClass} onValueChange={setFlightClass}>
             <SelectTrigger><SelectValue /></SelectTrigger>
@@ -94,7 +94,7 @@ const FlightSearchForm = ({ onSearch }: FlightSearchFormProps) => {
               <SelectItem value="first">First Class</SelectItem>
             </SelectContent>
           </Select>
-        </div>
+        </div> */}
 
         {/* <div>
           <Label>Passengers</Label>
