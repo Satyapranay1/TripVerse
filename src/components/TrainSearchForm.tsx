@@ -85,7 +85,7 @@ const TrainSearchForm = ({ onSearch }: TrainSearchFormProps) => {
           </Popover>
         </div>
 
-        <div>
+        {/* <div>
           <Label>Class</Label>
           <Select value={trainClass} onValueChange={setTrainClass}>
             <SelectTrigger>
@@ -98,7 +98,7 @@ const TrainSearchForm = ({ onSearch }: TrainSearchFormProps) => {
               <SelectItem value="1ac">First AC</SelectItem>
             </SelectContent>
           </Select>
-        </div>
+        </div> */}
 
         {/* <div>
           <Label>Passengers</Label>
