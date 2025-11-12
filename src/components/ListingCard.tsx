@@ -104,7 +104,7 @@ const ListingCard = ({ hotel, onBook }: ListingCardProps) => {
           <div className="flex items-baseline justify-between mt-3">
             <div className="flex items-baseline gap-1">
               <span className="text-2xl font-bold text-primary">
-                ${hotel.price || 0}
+                ₹{hotel.price || 0}
               </span>
               <span className="text-muted-foreground text-sm">/ night</span>
             </div>
