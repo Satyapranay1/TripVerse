@@ -253,7 +253,7 @@ const Index = ({ theme, toggleTheme }: IndexProps) => {
 
                         <div className="text-right ml-6">
                           <p className="text-2xl font-bold text-primary mb-2">
-                            ${flight.price}
+                            ₹{flight.price}
                           </p>
                           <Button onClick={() => handleSelectFlight(flight)}>
                             Select
@@ -320,7 +320,7 @@ const Index = ({ theme, toggleTheme }: IndexProps) => {
                         {/* RIGHT SECTION */}
                         <div className="text-right ml-6">
                           <p className="text-2xl font-bold text-primary mb-2">
-                            ${train.price}
+                            ₹{train.price}
                           </p>
                           <Button onClick={() => handleBookTrain(train)}>
                             Book Now
