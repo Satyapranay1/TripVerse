@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Plane, Moon, Sun } from "lucide-react";
 import { Button } from "./ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
@@ -11,6 +11,7 @@ interface TopNavbarProps {
 
 const TopNavbar = ({ theme, toggleTheme }: TopNavbarProps) => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [user, setUser] = useState<any>(null);
 
   useEffect(() => {
@@ -26,6 +27,13 @@ const TopNavbar = ({ theme, toggleTheme }: TopNavbarProps) => {
     navigate("/login");
   };
 
+  const navItems = [
+    { path: "/home", label: "Explore" },
+    { path: "/wishlist", label: "Wishlist" },
+    { path: "/community", label: "Community" },
+    { path: "/itinerary", label: "Itinerary" },
+  ];
+
   return (
     <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
@@ -33,24 +41,29 @@ const TopNavbar = ({ theme, toggleTheme }: TopNavbarProps) => {
           <div className="p-2 bg-gradient-primary rounded-lg">
             <Plane className="w-5 h-5 text-primary-foreground" />
           </div>
-          <span className="bg-gradient-primary bg-clip-text text-transparent">TripVerse</span>
+          <span className="bg-gradient-primary bg-clip-text text-transparent">
+            TripVerse
+          </span>
         </Link>
 
-        <div className="hidden md:flex items-center gap-6">
-          <Link to="/home" className="text-sm font-medium hover:text-primary transition-colors">
-            Explore
-          </Link>
-          <Link to="/wishlist" className="text-sm font-medium hover:text-primary transition-colors">
-            Wishlist
-          </Link>
-          <Link to="/community" className="text-sm font-medium hover:text-primary transition-colors">
-            Community
-          </Link>
-          <Link to="/itinerary" className="text-sm font-medium hover:text-primary transition-colors">
-            Itinerary
-          </Link>
+        {/* 🔗 Navigation Links */}
+        <div className="hidden md:flex items-center gap-6 relative">
+          {navItems.map((item) => (
+            <Link
+              key={item.path}
+              to={item.path}
+              className={`relative text-sm font-medium transition-colors after:content-[''] after:absolute after:left-0 after:bottom-[-6px] after:h-[2px] after:rounded-full after:transition-all after:duration-300 ${
+                location.pathname === item.path
+                  ? "text-primary after:w-full after:bg-gradient-primary"
+                  : "text-muted-foreground hover:text-primary after:w-0 hover:after:w-full hover:after:bg-gradient-primary"
+              }`}
+            >
+              {item.label}
+            </Link>
+          ))}
         </div>
 
+        {/* 🔘 Theme + User Section */}
         <div className="flex items-center gap-3">
           <Button
             variant="ghost"
@@ -58,7 +71,11 @@ const TopNavbar = ({ theme, toggleTheme }: TopNavbarProps) => {
             onClick={toggleTheme}
             className="rounded-full"
           >
-            {theme === "light" ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
+            {theme === "light" ? (
+              <Moon className="w-5 h-5" />
+            ) : (
+              <Sun className="w-5 h-5" />
+            )}
           </Button>
 
           {user ? (
